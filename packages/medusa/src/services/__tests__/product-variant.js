@@ -333,6 +333,7 @@ describe("ProductVariantService", () => {
       expect(productVariantRepository.update).toHaveBeenCalledWith(
         { id: IdMap.getId("ironman") },
         {
+          id: IdMap.getId("ironman"),
           title: "new title",
         }
       )
@@ -361,6 +362,7 @@ describe("ProductVariantService", () => {
       expect(productVariantRepository.update).toHaveBeenCalledWith(
         { id: IdMap.getId("ironman") },
         {
+          id: IdMap.getId("ironman"),
           title: "new title 2",
         }
       )
@@ -415,6 +417,7 @@ describe("ProductVariantService", () => {
       expect(productVariantRepository.update).toHaveBeenCalledWith(
         { id: IdMap.getId("ironman") },
         {
+          id: IdMap.getId("ironman"),
           title: "new title",
           metadata: {
             testing: "this",
@@ -444,6 +447,7 @@ describe("ProductVariantService", () => {
       expect(productVariantRepository.update).toHaveBeenCalledWith(
         { id: IdMap.getId("ironman") },
         {
+          id: IdMap.getId("ironman"),
           inventory_quantity: 98,
           title: "new title",
         }
@@ -698,10 +702,14 @@ describe("ProductVariantService", () => {
       .fn()
       .mockImplementation(() => Promise.resolve())
 
-    const regionService = {
+    const priceSelectionStrategy = {
       withTransaction: function () {
         return this
       },
+      onVariantsPricesUpdate: (variantIds) => Promise.resolve(),
+    }
+
+    const regionService = {
       list: jest.fn().mockImplementation((config) => {
         const idOrIds = config.id
 
@@ -719,12 +727,16 @@ describe("ProductVariantService", () => {
           name: "California",
         })
       },
+      withTransaction: function () {
+        return this
+      },
     }
 
     const productVariantService = new ProductVariantService({
       manager: MockManager,
       eventBusService,
       regionService,
+      priceSelectionStrategy,
       moneyAmountRepository,
     })
 

@@ -79,7 +79,7 @@ In this example, you’ll create a subscriber that listens to the `order.placed`
 
 :::tip
 
-For this example to work, you’ll need to install and configure Redis on your backend. You can refer to the [development guide](../../development/backend/prepare-environment.mdx#redis) to learn how to do that.
+For this example to work, you'll need to have an event bus module installed and configured, which should be available by default.
 
 :::
 
@@ -127,7 +127,7 @@ If you create an order now on your storefront, you should receive a message from
 
 :::tip
 
-If you don’t have a storefront set up yet, you can install one of the [Next.js](../../starters/nextjs-medusa-starter.mdx) or [Gatsby](../../starters/gatsby-medusa-starter.mdx) storefronts.
+If you don’t have a storefront set up yet, you can install the [Next.js starter storefront](../../starters/nextjs-medusa-starter.mdx).
 
 :::
 

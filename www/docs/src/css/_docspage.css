@@ -40,6 +40,26 @@ details summary {
   --ifm-paragraph-margin-bottom: 0;
 }
 
+.reference-table.table-col-4 th:nth-child(1),
+.reference-table.table-col-4 td:nth-child(1) {
+  width: 20% !important;
+}
+
+.reference-table.table-col-4 th:nth-child(2),
+.reference-table.table-col-4 td:nth-child(2) {
+  width: 20% !important;
+}
+
+.reference-table.table-col-4 th:nth-child(3),
+.reference-table.table-col-4 td:nth-child(3) {
+  width: 40% !important;
+}
+
+.reference-table.table-col-4 th:nth-child(4),
+.reference-table.table-col-4 td:nth-child(4) {
+  width: 20% !important;
+}
+
 .reference-table th:nth-child(1),
 .reference-table td:nth-child(1) {
   width: 30%;
@@ -178,6 +198,14 @@ details > div {
 .docs-page-container {
   padding-left: 0 !important;
   padding-right: 0 !important;
+}
+
+.cloudinary-image-wrapper {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 0;
 }
 
 @media screen and (min-width: 1419px) {
